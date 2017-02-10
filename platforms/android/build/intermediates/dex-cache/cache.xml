@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="/Volumes/903/INGEGNERIA INFORMATICA MAGISTRALE/MOBILE PROGRAMMING/Project/ScientificConference/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/release/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cf22a07d88d0ca229c1adc03bf4fa6235a64ffcf">
+        <dex dex="/Volumes/903/INGEGNERIA INFORMATICA MAGISTRALE/MOBILE PROGRAMMING/Project/ScientificConference/platforms/android/build/intermediates/pre-dexed/release/CordovaLib-unspecified-release_82ee7e9c048d354f4a42ef8024147689b790f3c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Volumes/903/INGEGNERIA INFORMATICA MAGISTRALE/MOBILE PROGRAMMING/Project/ScientificConference/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
         jumboMode="false"
         optimize="true"

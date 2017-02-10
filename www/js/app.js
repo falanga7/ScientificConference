@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('scientificConference', ['ionic', 'scientificConference.controllers', 'scientificConference.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,8 +23,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
 
+
+.config(function($ionicConfigProvider,$stateProvider, $urlRouterProvider) {
+
+
+  $ionicConfigProvider.tabs.position('bottom');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
