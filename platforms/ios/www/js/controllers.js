@@ -1,6 +1,15 @@
 angular.module('scientificConference.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('ProgramCtrl', function($scope,$http) {
+    $http.get("http://localhost:8888/htdocs/ScientificConference/updater.php?program")
+        .success(function(data) {
+            $scope.elencoCitta = data;
+        })
+        .error(function() {
+            navigator.notification.alert("Non è stato possibile caricare il programma");
+        });
+
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called

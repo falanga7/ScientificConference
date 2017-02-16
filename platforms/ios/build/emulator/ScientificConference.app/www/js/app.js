@@ -48,7 +48,7 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+        templateUrl: 'templates/tab-program.html',
         controller: 'DashCtrl'
       }
     }
