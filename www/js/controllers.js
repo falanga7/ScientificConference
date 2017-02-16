@@ -1,12 +1,12 @@
 angular.module('scientificConference.controllers', [])
 
-.controller('ProgramCtrl', function($scope,$http) {
+.controller('ProgramCtrl', function($scope,$http,$ionicPopup) {
     $http.get("http://localhost:8888/htdocs/ScientificConference/updater.php?program")
         .success(function(data) {
-            $scope.elencoCitta = data;
+            $scope.sessioni = data;
         })
         .error(function() {
-            navigator.notification.alert("Non è stato possibile caricare il programma");
+            $ionicPopup.alert({ title: "Errore", template:"Il programma non può essere caricato dal server."});
         });
 
 })

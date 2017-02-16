@@ -6,7 +6,7 @@ angular.module('scientificConference.controllers', [])
             $scope.elencoCitta = data;
         })
         .error(function() {
-            navigator.notification.alert("Non è stato possibile caricare il programma");
+            navigator.notification.vibrate(2000);
         });
 
 })

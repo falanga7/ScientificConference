@@ -1,11 +1,11 @@
 <ion-view view-title="Programma">
   <ion-content class="padding">
-      <div class="card">
+      <div class="card" ng-repeat="session in sessioni">
           <div class="item item-divider text-center item-dark">
-              17-02-2017 17:59
+              {{session.DataOra}}
           </div>
           <div class="item item-text-wrap">
-              Break prima di iniziare.
+              {{session.Info}}
           </div>
       </div>
   </ion-content>
