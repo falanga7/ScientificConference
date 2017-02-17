@@ -62,12 +62,12 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.info', {
+      url: '/info',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-info': {
+          templateUrl: 'templates/tab-info.html',
+          controller: 'InfoCtrl'
         }
       }
     })
@@ -80,8 +80,12 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
         }
       }
     })
-
-  .state('tab.account', {
+    .state('map', {
+            url: '/map',
+            templateUrl: 'templates/map.html',
+            controller: 'MapCtrl'
+    })
+    .state('tab.account', {
     url: '/account',
     views: {
       'tab-account': {
@@ -92,6 +96,6 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
+  $urlRouterProvider.otherwise('/tab/info');
 
 });
