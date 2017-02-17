@@ -75,17 +75,20 @@ module.exports = [
             "cordova.plugins.notification.local.core",
             "plugin.notification.local.core"
         ]
-    },
-    {
-        "id": "cordova-plugin-geolocation.geolocation",
-        "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-        "pluginId": "cordova-plugin-geolocation",
-        "clobbers": [
-            "navigator.geolocation"
-        ]
-    },
-    {
-        "id": "cordova-plugin-geolocation.PositionError",
-        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-        "pluginId": "cordova-plugin-geolocation",
-   
+    }
+];
+module.exports.metadata = 
+// TOP OF METADATA
+{
+    "cordova-plugin-console": "1.0.5",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-splashscreen": "4.0.1",
+    "cordova-plugin-statusbar": "2.2.1",
+    "cordova-plugin-whitelist": "1.3.1",
+    "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-dialogs": "1.3.1",
+    "cordova-plugin-app-event": "1.2.0",
+    "de.appplant.cordova.plugin.local-notification": "0.8.4"
+};
+// BOTTOM OF METADATA
+});

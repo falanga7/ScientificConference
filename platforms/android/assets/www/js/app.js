@@ -10,6 +10,12 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
+      // Ios requires permissions to make notifications
+
+      if(device.platform === "iOS") {
+          window.plugin.notification.local.promptForPermission();
+      }
+
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

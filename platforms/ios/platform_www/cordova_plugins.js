@@ -96,5 +96,7 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-dialogs": "1.3.1",
     "cordova-plugin-app-event": "1.2.0",
-    "de.appplant.cordova.plugin.local-notification": "0.8.4",
-    "cordova-plugin-compat
+    "de.appplant.cordova.plugin.local-notification": "0.8.4"
+}
+// BOTTOM OF METADATA
+});
