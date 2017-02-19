@@ -1,0 +1,33 @@
+<ion-view view-title="Info">
+  <ion-content>
+    <div class="list card">
+
+      <div class="item item-avatar" style={{"background-color:"+backgroundColour}}>
+        <img src={{"/img/"+logo}}>
+        <h2>{{appname}}</h2>
+        <p><a href="#/map">{{conferencePlace}}</a></p>
+      </div>
+
+      <div class="item item-body">
+
+        <p>
+          {{conferenceInfo}}
+        </p>
+
+      </div>
+      <div class="item">
+        <div class="list">
+          <div class="item item-divider">
+            Organizzatori
+          </div>
+
+          <a ng-repeat="organizer in organizers" class="item" href="#">
+            {{organizer}}
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
