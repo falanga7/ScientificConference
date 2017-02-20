@@ -10,25 +10,28 @@ angular.module('scientificConference.controllers', ['ngCordova'])
             for(var i=0; i<data.length;i++)
             {
                 datetime=data[i].DataOra.split(" ");
-                if(moment(moment()._d).format("DD-MM-YYYY")==datetime[0]){
+                if(moment(moment()._d).format("DD-MM-YYYY")==datetime[0]) {
 
                     sessionToReturn.push(data[i]);
+                    time=datetime[1].split(":");
+                    if (moment()._d.getHours()<=time[0] && moment()._d.getMinutes()<time[1]){
 
+                        var alarmTime = moment(data[i].DataOra, "DD-MM-YYYY HH:mm").toDate();
+                        alarmTime = new Date(alarmTime.getTime() - 1 * 60000);
 
-                    var alarmTime = new Date(moment(data[i].DataOra,"DD-MM-YYYY H:m").format("YYYY-MM-DDTH:m"));
-                    alarmTime=new Date(alarmTime.getTime()- 1*60000);
+                        $ionicPlatform.ready(function () {
 
-                    $ionicPlatform.ready(function(){
+                            $cordovaLocalNotifications.schedule({
+                                id: Math.floor((Math.random() * 1000) + 1),
+                                at: alarmTime,
+                                text: data[i].Info,
+                                title: data[i].DataOra,
+                                sound: null
+                            })
 
-                        $cordovaLocalNotifications.schedule({
-                            id: Math.floor((Math.random() * 1000) + 1),
-                            firstAt: alarmTime,
-                            text: data[i].Info,
-                            title: data[i].DataOra,
-                            sound: null
-                        })
+                        });
+                    }
 
-                    });
 
 
 
@@ -58,6 +61,7 @@ angular.module('scientificConference.controllers', ['ngCordova'])
         $scope.conferenceInfo=scientificConferenceApp.conferenceInfo;
         $scope.organizers=scientificConferenceApp.organizers;
 
+
 })
 .controller('ParticipantsCtrl', function($scope, $state, $cordovaGeolocation) {
 
@@ -65,6 +69,30 @@ angular.module('scientificConference.controllers', ['ngCordova'])
 
 })
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
+.controller('MapCtrl', function($scope, $ionicLoading) {
+
+    google.maps.event.addDomListener(window, 'load', function() {
+        var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                title: "My Location"
+            });
+        });
+
+        $scope.map = map;
+    });
 
 });
+

@@ -31,10 +31,16 @@
         "cordova-plugin-googlemaps": {
             "API_KEY_FOR_ANDROID": "AIzaSyAfCynzldKweUeXkY2WeB4oV5ckbr-fkQs",
             "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         }
     }

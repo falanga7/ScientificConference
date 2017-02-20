@@ -10,6 +10,7 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
+
       // Ios requires permissions to make notifications
 
       if(device.platform === "iOS") {

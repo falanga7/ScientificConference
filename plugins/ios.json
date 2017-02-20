@@ -33,6 +33,10 @@
             "NSLOCATIONWHENINUSEUSAGEDESCRIPTION": "Show your location on the map",
             "NSLOCATIONALWAYSUSAGEDESCRIPTION": "Trace your location on the map",
             "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         }
     },
     "dependent_plugins": {
@@ -40,6 +44,9 @@
             "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         }
     }
