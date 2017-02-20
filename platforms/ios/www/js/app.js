@@ -5,10 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('scientificConference', ['ionic', 'scientificConference.controllers'])
+angular.module('scientificConference', ['ionic', 'scientificConference.controllers','ionic.native','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
 
       // Ios requires permissions to make notifications
 
@@ -62,6 +63,7 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
     }
   })
 
+
   .state('tab.info', {
       url: '/info',
       views: {
@@ -71,29 +73,21 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+
+  .state('tab.participants', {
+      url: '/participants',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
+          'tab-participants': {
+              templateUrl: 'templates/tab-participants.html',
+              controller: 'ParticipantsCtrl'
+          }
       }
-    })
+  })
     .state('map', {
             url: '/map',
             templateUrl: 'templates/map.html',
             controller: 'MapCtrl'
-    })
-    .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-participants.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/info');

@@ -1,5 +1,5 @@
 
-angular.module('scientificConference.controllers', ['ngCordova'])
+angular.module('scientificConference.controllers',[])
 
 .controller('ProgramCtrl', function($scope,$http,$ionicPopup,$cordovaLocalNotifications, $ionicPlatform) {
     $http.get("http://"+scientificConferenceApp.serverIp+"/updater.php?program")
@@ -68,31 +68,48 @@ angular.module('scientificConference.controllers', ['ngCordova'])
 
 
 })
+.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform,$http) {
 
-.controller('MapCtrl', function($scope, $ionicLoading) {
+    $ionicPlatform.ready(function() {
 
-    google.maps.event.addDomListener(window, 'load', function() {
-        var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
-
-        var mapOptions = {
-            center: myLatlng,
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-        navigator.geolocation.getCurrentPosition(function(pos) {
-            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-            var myLocation = new google.maps.Marker({
-                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-                map: map,
-                title: "My Location"
-            });
+        $ionicLoading.show({
+            template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
         });
 
-        $scope.map = map;
+        var posOptions = {
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 0
+        };
+        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+
+           $http.get("http://maps.google.com/maps/api/geocode/json?address="+scientificConferenceApp.conferencePlace)
+                .success(function(data){
+                    lat=data.results[0].geometry.location.lat;
+                    long=data.results[0].geometry.location.lng;
+                    var myLatlng = new google.maps.LatLng(lat, long);
+
+                    var mapOptions = {
+                        center: myLatlng,
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    $scope.map = map;
+                    $ionicLoading.hide();
+
+                })
+                .error(function() {
+                    $ionicPopup.alert({ title: "Errore", template:"Non riesco a caricare le coordinate."});
+
+                });
+
+
+
+        }, function(err) {
+            $ionicLoading.hide();
+            console.log(err);
+        });
     });
-
 });
-

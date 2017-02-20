@@ -1,7 +1,7 @@
 
-angular.module('scientificConference.controllers', ['ngCordova'])
+angular.module('scientificConference.controllers',[])
 
-.controller('ProgramCtrl', function($scope,$http,$ionicPopup,$cordovaLocalNotification, $ionicPlatform) {
+.controller('ProgramCtrl', function($scope,$http,$ionicPopup,$cordovaLocalNotifications, $ionicPlatform) {
     $http.get("http://"+scientificConferenceApp.serverIp+"/updater.php?program")
         .success(function(data) {
             sessionToReturn=[];
@@ -10,25 +10,31 @@ angular.module('scientificConference.controllers', ['ngCordova'])
             for(var i=0; i<data.length;i++)
             {
                 datetime=data[i].DataOra.split(" ");
-                if(moment(moment()._d).format("DD-MM-YYYY")==datetime[0]){
+                if(moment(moment()._d).format("DD-MM-YYYY")==datetime[0]) {
 
                     sessionToReturn.push(data[i]);
-
                     time=datetime[1].split(":");
-                    var alarmTime = new Date();
-                    alarmTime.setHours(time[0])
-                    alarmTime.setMinutes(time[1]-1);
-                    /*
-                    $ionicPlatform.ready(function () {
-                    $cordovaLocalNotification.schedule({
-                        id: data[i].DataOra,
-                        date: alarmTime,
-                        message: data[i].Info,
-                        title: data[i].DataOra,
-                        autoCancel: true,
-                        sound: true
-                    })
-                })*/
+                    if (moment()._d.getHours()<=time[0] && moment()._d.getMinutes()<time[1]){
+
+                        var alarmTime = moment(data[i].DataOra, "DD-MM-YYYY HH:mm").toDate();
+                        alarmTime = new Date(alarmTime.getTime() - 1 * 60000);
+
+                        $ionicPlatform.ready(function () {
+
+                            $cordovaLocalNotifications.schedule({
+                                id: Math.floor((Math.random() * 1000) + 1),
+                                at: alarmTime,
+                                text: data[i].Info,
+                                title: data[i].DataOra,
+                                sound: null
+                            })
+
+                        });
+                    }
+
+
+
+
                 }
 
             }
@@ -39,19 +45,6 @@ angular.module('scientificConference.controllers', ['ngCordova'])
 
         });
 
-    $scope.goForward = function () {
-        var selected = $ionicTabsDelegate.selectedIndex();
-        if (selected != -1) {
-            $ionicTabsDelegate.select(selected + 1);
-        }
-    }
-
-    $scope.goBack = function () {
-        var selected = $ionicTabsDelegate.selectedIndex();
-        if (selected != -1 && selected != 0) {
-            $ionicTabsDelegate.select(selected - 1);
-        }
-    }
 
 
 
@@ -67,38 +60,56 @@ angular.module('scientificConference.controllers', ['ngCordova'])
         $scope.backgroundColour=scientificConferenceApp.backgroundColour;
         $scope.conferenceInfo=scientificConferenceApp.conferenceInfo;
         $scope.organizers=scientificConferenceApp.organizers;
-        $scope.goForward = function () {
-            var selected = $ionicTabsDelegate.selectedIndex();
-            if (selected != -1) {
-                $ionicTabsDelegate.select(selected + 1);
-            }
-        }
 
-        $scope.goBack = function () {
-            var selected = $ionicTabsDelegate.selectedIndex();
-            if (selected != -1 && selected != 0) {
-                $ionicTabsDelegate.select(selected - 1);
-            }
-        }
 
 })
+.controller('ParticipantsCtrl', function($scope, $state, $cordovaGeolocation) {
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
-    var options = {timeout: 10000, enableHighAccuracy: true};
 
-    $cordovaGeolocation.getCurrentPosition(options).then(function(position){
 
-        var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+})
+.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform,$http) {
 
-        var mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+    $ionicPlatform.ready(function() {
+
+        $ionicLoading.show({
+            template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
+        });
+
+        var posOptions = {
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 0
         };
+        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
 
-        $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+           $http.get("http://maps.google.com/maps/api/geocode/json?address="+scientificConferenceApp.conferencePlace)
+                .success(function(data){
+                    lat=data.results[0].geometry.location.lat;
+                    long=data.results[0].geometry.location.lng;
+                    var myLatlng = new google.maps.LatLng(lat, long);
 
-    }, function(error){
-        console.log("Could not get location");
+                    var mapOptions = {
+                        center: myLatlng,
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    $scope.map = map;
+                    $ionicLoading.hide();
+
+                })
+                .error(function() {
+                    $ionicPopup.alert({ title: "Errore", template:"Non riesco a caricare le coordinate."});
+
+                });
+
+
+
+        }, function(err) {
+            $ionicLoading.hide();
+            console.log(err);
+        });
     });
 });
