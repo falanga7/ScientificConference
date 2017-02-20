@@ -8,23 +8,39 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyBjL-uKfV3EkpZ-fN760TxiRdvJ8-JThAQ",
+            "NSLOCATIONWHENINUSEUSAGEDESCRIPTION": "Show your location on the map",
+            "NSLOCATIONALWAYSUSAGEDESCRIPTION": "Trace your location on the map",
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.scientificconference500942"
+        }
+    }
 }

@@ -1,7 +1,7 @@
 
 angular.module('scientificConference.controllers', ['ngCordova'])
 
-.controller('ProgramCtrl', function($scope,$http,$ionicPopup,$cordovaLocalNotification, $ionicPlatform) {
+.controller('ProgramCtrl', function($scope,$http,$ionicPopup,$cordovaLocalNotifications, $ionicPlatform) {
     $http.get("http://"+scientificConferenceApp.serverIp+"/updater.php?program")
         .success(function(data) {
             sessionToReturn=[];
@@ -14,21 +14,24 @@ angular.module('scientificConference.controllers', ['ngCordova'])
 
                     sessionToReturn.push(data[i]);
 
-                    time=datetime[1].split(":");
-                    var alarmTime = new Date();
-                    alarmTime.setHours(time[0])
-                    alarmTime.setMinutes(time[1]-1);
-                    /*
-                    $ionicPlatform.ready(function () {
-                    $cordovaLocalNotification.schedule({
-                        id: data[i].DataOra,
-                        date: alarmTime,
-                        message: data[i].Info,
-                        title: data[i].DataOra,
-                        autoCancel: true,
-                        sound: true
-                    })
-                })*/
+
+                    var alarmTime = new Date(moment(data[i].DataOra,"DD-MM-YYYY H:m").format("YYYY-MM-DDTH:m"));
+                    alarmTime=new Date(alarmTime.getTime()- 1*60000);
+
+                    $ionicPlatform.ready(function(){
+
+                        $cordovaLocalNotifications.schedule({
+                            id: Math.floor((Math.random() * 1000) + 1),
+                            firstAt: alarmTime,
+                            text: data[i].Info,
+                            title: data[i].DataOra,
+                            sound: null
+                        })
+
+                    });
+
+
+
                 }
 
             }
@@ -38,6 +41,7 @@ angular.module('scientificConference.controllers', ['ngCordova'])
             $ionicPopup.alert({ title: "Errore", template:"Il programma non può essere caricato dal server."});
 
         });
+
 
 
 
@@ -55,23 +59,12 @@ angular.module('scientificConference.controllers', ['ngCordova'])
         $scope.organizers=scientificConferenceApp.organizers;
 
 })
+.controller('ParticipantsCtrl', function($scope, $state, $cordovaGeolocation) {
+
+
+
+})
 
 .controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
-    var options = {timeout: 10000, enableHighAccuracy: true};
 
-    $cordovaGeolocation.getCurrentPosition(options).then(function(position){
-
-        var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-        var mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    }, function(error){
-        console.log("Could not get location");
-    });
 });
