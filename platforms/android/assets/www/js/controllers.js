@@ -68,7 +68,7 @@ angular.module('scientificConference.controllers',[])
 
 
 })
-.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform,$http) {
+.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform,$http,$compile) {
 
     $ionicPlatform.ready(function() {
 
@@ -94,7 +94,25 @@ angular.module('scientificConference.controllers',[])
                         zoom: 16,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
+
+                    var contentString = "<div>"+scientificConferenceApp.conferencePlace+"</div>";
+                    var compiled = $compile(contentString)($scope);
                     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: compiled[0]
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: 'Uluru (Ayers Rock)'
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,marker);
+                    });
+
 
                     $scope.map = map;
                     $ionicLoading.hide();
