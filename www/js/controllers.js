@@ -1,6 +1,6 @@
 angular.module('scientificConference.controllers', [])
 
-    .controller('ProgramCtrl', function ($scope, $http, $ionicPopup, $interval, $ionicPlatform, $cordovaLocalNotification) {
+    .controller('ProgramCtrl', function ($scope, $http, $ionicPopup, $interval, $ionicPlatform, $cordovaLocalNotifications) {
         // watch for program updates only current daily is inserted
         $scope.moment = moment(new Date());
         $scope.program = null;
