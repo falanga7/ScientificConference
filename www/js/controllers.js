@@ -4,7 +4,7 @@ angular.module('scientificConference.controllers', [])
         // watch for program updates only current daily is inserted
         $scope.moment = moment(new Date());
         $scope.program = null;
-        $scope.watch('moment', function () {
+        $scope.$watch('moment', function () {
             $http.get("http://" + scientificConferenceApp.serverIp + "/updater.php?program")
                 .success(function (data) {
 
@@ -110,8 +110,22 @@ angular.module('scientificConference.controllers', [])
 
 
     })
-    .controller('ParticipantsCtrl', function ($scope, $state, $cordovaGeolocation) {
+    .controller('ParticipantsCtrl', function ($scope, $http, $ionicPopup) {
 
+        $http.get("http://127.0.0.1:8888/updater.php?participants")
+            .success(function (participants) {
+                    $scope.participants=participants;
+                    angular.forEach($scope.participants, function (participant) {
+                        participant.Hindex = parseInt(participant.Hindex);
+                    });
+
+            }
+            )
+            .error(function(){
+                $ionicPopup.alert({title:"Error",template: "Cannot retrieve participants."});
+            })
+        $scope.order = '-Hindex';
+        $scope.searchBy="Name";
 
     })
     .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform, $http, $compile) {

@@ -41,7 +41,7 @@
         An application to handle a scientific conference.
     </description>
     <author email="f.falanga7@studenti.unisa.it" href="http://scientificonference.tk/">
-      Francesco Falanga
+        Francesco Falanga
     </author>
     <content src="index.html" />
     <allow-intent href="*" />

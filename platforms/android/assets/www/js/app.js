@@ -1,13 +1,9 @@
-// Ionic Starter App
+// angular.module is a global place for creating, registering and retrieving Angular modules, I'm injecting some modules
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('scientificConference', ['ionic', 'scientificConference.controllers', 'ionic.native', 'ngCordova'])
+angular.module('scientificConference', ['ionic', 'scientificConference.controllers','ionic.native', 'ngCordova'])
 
     .run(function ($ionicPlatform) {
+
         $ionicPlatform.ready(function () {
 
 
@@ -34,8 +30,9 @@ angular.module('scientificConference', ['ionic', 'scientificConference.controlle
 
 
     .config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider) {
-
+        // this allows to center the title
         $ionicConfigProvider.navBar.alignTitle('center');
+        // this forces the tabs to be at bottom in every OS
         $ionicConfigProvider.tabs.position('bottom');
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
