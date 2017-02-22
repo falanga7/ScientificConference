@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.1_c723c52e031ca6f88ba683ab1bd381a400030457.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_e5e3f0188446592be54ceea16c65b9c678190544.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="afe8eb4906b94df000e2b3714c864ec42d4e4ea6">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_bf09fdda6a6da4b6993e833722aa0f902523402c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/903/MAC/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_dba3b94c47bd8bb81f162e5ca8ee97aa048d542c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.1_27c9980cfc928343fe41cf11e116d286a8323c2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.8.0_fb5166d9dccc469926ed0b34558f1a47e0929065.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_f7ed9ebb6b90c35287b2c76db994111701cf1829.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.8.0_f8afcf610db3c8e0cd973363249b3bfd3962255d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.8.0_683bccc6dfaa0fa37d82741e5f6a15f3e1d12599.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.8.0_e03d9e1743957b8119bf198f029dd39e2147d9b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_3977134c91818b6bdf1af0eeb45874d3e4b3702c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.8.0_ecce1020f2d2ea618b62990f3fd0d809ccce578b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.1_b2378fbd7ceb4f451d751b4d20ea61167da776a4.jar" />
+    </item>
+
+</items>
