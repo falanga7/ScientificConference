@@ -112,7 +112,7 @@ angular.module('scientificConference.controllers', [])
     })
     .controller('ParticipantsCtrl', function ($scope, $http, $ionicPopup) {
 
-        $http.get("http://"+ scientificConferenceApp.serverIp +"/updater.php?participants")
+        $http.get("http://127.0.0.1:8888/updater.php?participants")
             .success(function (participants) {
                     $scope.participants=participants;
                     angular.forEach($scope.participants, function (participant) {
@@ -125,11 +125,12 @@ angular.module('scientificConference.controllers', [])
                 $ionicPopup.alert({title:"Error",template: "Cannot retrieve participants."});
             })
         $scope.order = '-Hindex';
-        $scope.searchBy="Name";
-        $scope.$watch('searchBy', function(NewValue, OldValue) {
-            alert('changed');
-        }, true);
-
+        $scope.searchBy="Surname";
+        $scope.resetSearch=function(){
+            this.search.Surname="";
+            this.search.Name="";
+            this.search.Area="";
+        }
     })
     .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform, $http, $compile) {
 

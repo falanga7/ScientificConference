@@ -3,7 +3,7 @@
     <ion-content class="padding" style={{"background-color:"+scientificConferenceApp.backgroundColour}}>
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" placeholder="Search participants" ng-model="search[searchBy]">
+            <input type="text" placeholder="Search participants" ng-model="search[searchBy]" ng-model="searchValue">
         </label>
 
         <div class="list">
@@ -12,7 +12,7 @@
                 <div class="input-label">
                     Search by
                 </div>
-                <select ng-model="searchBy">
+                <select ng-model="searchBy" ng-change="resetSearch()">
                     <option value="Name">Name</option>
                     <option value="Surname">Surname</option>
                     <option value="Area">Area of interest</option>
