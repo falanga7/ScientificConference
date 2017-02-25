@@ -1,10 +1,18 @@
 [
     {
-        "merged": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
-        "source": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/color/common_google_signin_btn_text_light.xml"
+        "merged": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/color/common_google_signin_btn_text_dark.xml"
+        "merged": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\color\\common_google_signin_btn_text_light.xml"
     }
 ]

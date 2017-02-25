@@ -8,41 +8,20 @@ angular.module('scientificConference.controllers', [])
             $http.get("http://" + scientificConferenceApp.serverIp + "/updater.php?program")
                 .success(function (data) {
 
-                    $ionicPlatform.ready(function () {
-                        $cordovaLocalNotifications.cancelAll();
-                    });
 
                     if (JSON.stringify($scope.program) != JSON.stringify(data)) {
                         sessionToReturn = [];
-
                         for (var i = 0; i < data.length; i++) {
 
                             datetime = data[i].DataOra.split(" ");
                             if (moment(moment()._d).format("DD-MM-YYYY") == datetime[0]) {
 
                                 sessionToReturn.push(data[i]);
-                                time = datetime[1].split(":");
-                                if (moment()._d.getHours() <= time[0] && moment()._d.getMinutes() < time[1]) {
-
-                                    var alarmTime = moment(data[i].DataOra, "DD-MM-YYYY HH:mm").toDate();
-                                    alarmTime = new Date(alarmTime.getTime() - 1 * 60000);
-
-                                    $ionicPlatform.ready(function () {
-
-                                        $cordovaLocalNotifications.schedule({
-                                            id: Math.floor((Math.random() * 1000) + 1),
-                                            at: alarmTime,
-                                            text: data[i].Info,
-                                            title: data[i].DataOra,
-                                            sound: null
-                                        })
-
-                                    });
-                                }
 
                             }
 
                         }
+                        $scope.program=data;
                         $scope.sessions = sessionToReturn;
                     }
                 })
@@ -63,42 +42,42 @@ angular.module('scientificConference.controllers', [])
 
     .controller('InfoCtrl', function ($scope, $http, $cordovaLocalNotifications, $ionicPlatform, $ionicPopup) {
 
+        $ionicPlatform.ready(function () {
+            // registering notifications
+            $http.get("http://" + scientificConferenceApp.serverIp + "/updater.php?program")
+                .success(function (data) {
 
-        // registering notifications
-        $http.get("http://" + scientificConferenceApp.serverIp + "/updater.php?program")
-            .success(function (data) {
 
-                $ionicPlatform.ready(function () {
-                    $cordovaLocalNotifications.cancelAll();
-                });
-                for (var i = 0; i < data.length; i++) {
-                    datetime = data[i].DataOra.split(" ");
+                    for (var i = 0; i < data.length; i++) {
+                        datetime = data[i].DataOra.split(" ");
 
-                    time = datetime[1].split(":");
-                    if (moment()._d.getHours() <= time[0] && moment()._d.getMinutes() < time[1]) {
+                        time = datetime[1].split(":");
+                        if (moment()._d.getHours() <= time[0] && moment()._d.getMinutes() < time[1]) {
 
-                        var alarmTime = moment(data[i].DataOra, "DD-MM-YYYY HH:mm").toDate();
-                        alarmTime = new Date(alarmTime.getTime() - 1 * 60000);
-
-                        $ionicPlatform.ready(function () {
-
-                            $cordovaLocalNotifications.schedule({
+                            var alarmTime = moment(data[i].DataOra, "DD-MM-YYYY HH:mm").toDate();
+                            alarmTime = new Date(alarmTime.getTime() - 1 * 60000);
+                            var sessionDate = data[i];
+                            var localNotification = {
                                 id: Math.floor((Math.random() * 1000) + 1),
                                 at: alarmTime,
-                                text: data[i].Info,
-                                title: data[i].DataOra,
+                                text: sessionDate.Info,
+                                title: sessionDate.DataOra,
                                 sound: null
-                            })
+                            };
 
-                        });
+
+                            $cordovaLocalNotifications.schedule(localNotification);
+
+
+                        }
+
                     }
+                })
+                .error(function () {
+                    $ionicPopup.alert({title: "Error", template: "It's impossible to load the program."});
 
-                }
-            })
-            .error(function () {
-                $ionicPopup.alert({title: "Error", template: "It's impossible to load the program."});
-
-            });
+                });
+        });
 
         // just inserting app information in scope
         $scope.logo = scientificConferenceApp.logo;
@@ -112,24 +91,24 @@ angular.module('scientificConference.controllers', [])
     })
     .controller('ParticipantsCtrl', function ($scope, $http, $ionicPopup) {
 
-        $http.get("http://127.0.0.1:8888/updater.php?participants")
+        $http.get("http://" + scientificConferenceApp.serverIp + "/updater.php?participants")
             .success(function (participants) {
-                    $scope.participants=participants;
+                    $scope.participants = participants;
                     angular.forEach($scope.participants, function (participant) {
                         participant.Hindex = parseInt(participant.Hindex);
                     });
 
-            }
+                }
             )
-            .error(function(){
-                $ionicPopup.alert({title:"Error",template: "Cannot retrieve participants."});
+            .error(function () {
+                $ionicPopup.alert({title: "Error", template: "Cannot retrieve participants."});
             })
         $scope.order = '-Hindex';
-        $scope.searchBy="Surname";
-        $scope.resetSearch=function(){
-            this.search.Surname="";
-            this.search.Name="";
-            this.search.Area="";
+        $scope.searchBy = "Surname";
+        $scope.resetSearch = function () {
+            this.search.Surname = "";
+            this.search.Name = "";
+            this.search.Area = "";
         }
     })
     .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform, $http, $compile) {

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/res/merged/debug/mipmap-hdpi/icon.png",
-        "source": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/res/mipmap-hdpi/icon.png"
+        "merged": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\icon.png",
+        "source": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\res\\mipmap-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\icon.png",
+        "source": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\res\\mipmap-hdpi\\icon.png"
     }
 ]

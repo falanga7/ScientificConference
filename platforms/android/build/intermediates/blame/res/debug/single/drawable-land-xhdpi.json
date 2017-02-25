@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/build/intermediates/res/merged/debug/drawable-land-xhdpi/screen.png",
-        "source": "/Users/s903s/Desktop/ScientificConferenceFixed/ScientificConference/platforms/android/res/drawable-land-xhdpi/screen.png"
+        "merged": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi\\screen.png",
+        "source": "C:\\Users\\Valentino\\PhpstormProjects\\ScientificConference\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi\\screen.png",
+        "source": "C:\\Users\\s903s\\Desktop\\ScientificConferenceFixed\\ScientificConference\\platforms\\android\\res\\drawable-land-xhdpi\\screen.png"
     }
 ]

@@ -3,7 +3,7 @@
     <ion-content class="padding" style={{"background-color:"+scientificConferenceApp.backgroundColour}}>
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" placeholder="Search participants" data-ng-model="searchForce">
+            <input type="text" placeholder="Search participants" ng-model="search[searchBy]" ng-model="searchValue">
         </label>
 
         <div class="list">
@@ -12,10 +12,10 @@
                 <div class="input-label">
                     Search by
                 </div>
-                <select>
-                    <option>Name</option>
-                    <option selected>Surname</option>
-                    <option>Area of interest</option>
+                <select ng-model="searchBy" ng-change="resetSearch()">
+                    <option value="Name">Name</option>
+                    <option value="Surname">Surname</option>
+                    <option value="Area">Area of interest</option>
                 </select>
             </label>
 
@@ -23,9 +23,9 @@
                 <div class="input-label">
                     Order by
                 </div>
-                <select>
-                    <option>Surname</option>
-                    <option selected>h-index</option>
+                <select ng-model="order">
+                    <option value="+Surname">Surname</option>
+                    <option value="-Hindex">h-index</option>
 
                 </select>
             </label>
@@ -39,61 +39,14 @@
             <div class="col"><strong>h-index</strong></div>
         </div>
 
-        <div class="row">
-            <div class="col"> Nicole</div>
-            <div class="col"> Artner</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
+        <div class="row" ng-repeat="participant in participants | filter:search | orderBy:order ">
+            <div class="col"> {{participant.Name}}</div>
+            <div class="col"> {{participant.Surname}}</div>
+            <div class="col"> {{participant.Area}}</div>
+            <div class="col"> {{participant.Hindex}}</div>
         </div>
 
-        <div class="row">
-            <div class="col"> Rocio</div>
-            <div class="col"> Gonzalez-Diaz</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
 
-        <div class="row">
-            <div class="col"> Nicole</div>
-            <div class="col"> Artner</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
-
-        <div class="row">
-            <div class="col"> Rocio</div>
-            <div class="col"> Gonzalez-Diaz</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
-
-        <div class="row">
-            <div class="col"> Nicole</div>
-            <div class="col"> Artner</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
-
-        <div class="row">
-            <div class="col"> Rocio</div>
-            <div class="col"> Gonzalez-Diaz</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
-
-        <div class="row">
-            <div class="col"> Nicole</div>
-            <div class="col"> Artner</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
-
-        <div class="row">
-            <div class="col"> Rocio</div>
-            <div class="col"> Gonzalez-Diaz</div>
-            <div class="col"> Test</div>
-            <div class="col"> 22</div>
-        </div>
 
 
     </ion-content>

@@ -1,7 +1,7 @@
 scientificConferenceApp = {
     appname: "Scientific Conference",                                            // nome dell'applicazione
     backgroundColour: "white",                                                   // consente di cambiare il colore di sfondo del container del logo, va scelto usando rgb o un colore inglese
-    serverIp: "35.166.114.130",                                                  // ip del server da cui scaricare i dati
+    serverIp: "193.205.163.223/ScientificConference",                                                  // ip del server da cui scaricare i dati
     conferenceName: "Graph-based Representations",                               // nome della conferenza
     logo: "logo.png",                                                            // nome del logo, presente nella cartella img
     conferenceInfo: "GbR is a biennial workshop organized by the 15th Technical" +                         // descrizione della conferenza
